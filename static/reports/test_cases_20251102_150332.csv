@@ -1,0 +1,32 @@
+TC_ID,Test Case Description,Test Step,Expected Result,Actual Result,Status
+TC_001,Verify presence of link: Satyen78AI,Check if link with text 'Satyen78AI' exists,Link should be present in the page,Link is present,Pass
+TC_002,Verify accessibility of link: Satyen78AI,Try to access URL: https://satyen78.pythonanywhere.com,Link should be accessible with 2xx/3xx status code,Link is accessible with status code 200,Pass
+TC_003,Verify presence of link: Sign Up,Check if link with text 'Sign Up' exists,Link should be present in the page,Link is present,Pass
+TC_004,Verify accessibility of link: Sign Up,Try to access URL: https://satyen78.pythonanywhere.com/signup,Link should be accessible with 2xx/3xx status code,Link is accessible with status code 200,Pass
+TC_005,Verify presence of form #1,Check if form with action 'https://satyen78.pythonanywhere.com' exists,Form should be present in the page,Form is present,Pass
+TC_006,Verify required fields in form #1,Check if required fields are properly marked,"Fields email, password should be required",All required fields are properly marked,Pass
+TC_007,Verify form #1 submission endpoint,Check if form action URL 'https://satyen78.pythonanywhere.com' is valid,Form action URL should be valid,Form action URL is valid,Pass
+TC_008,Verify page title,Check if page has a title,Page should have a title,Page title is 'Satyen78AI | Login',Pass
+TC_009,Verify meta description,Check if page has meta description,Page should have meta description,Meta description is missing,Fail
+TC_010,Verify meta keywords,Check if page has meta keywords,Page should have meta keywords,Meta keywords is missing,Fail
+TC_011,Verify meta viewport,Check if page has meta viewport,Page should have meta viewport,Meta viewport is present,Pass
+TC_012,Verify meta charset,Check if page has meta charset,Page should have meta charset,Meta charset is present,Pass
+TC_013,Verify meta robots,Check if page has meta robots,Page should have meta robots,Meta robots is missing,Fail
+TC_014,Verify responsive design meta tag,Check if page has viewport meta tag,Page should have viewport meta tag for responsiveness,"Viewport meta tag is present: width=device-width, initial-scale=1",Pass
+TC_015,Verify script loading,Check script inclusion,Page should load all required scripts,"Found 0 scripts (0 external, 0 inline)",Fail
+TC_016,Verify stylesheet loading,Check stylesheet inclusion,Page should load all required stylesheets,"Found 1 stylesheets (1 external, 1 inline)",Pass
+TC_017,Verify form elements presence,Check presence of interactive elements,Page should have necessary interactive elements,"Found 1 buttons, 2 input fields, 0 select dropdowns, 0 text areas",Pass
+TC_018,Verify SEO basics,Check basic SEO elements,Page should have basic SEO elements,"Missing canonical link, Missing meta description, Image alt text ratio: 100%",Warning
+TC_019,Verify security measures,Check security features,Page should implement basic security measures,"CSRF protection: Missing, External links: 0, Password fields: 1",Warning
+TC_020,Verify social media metadata,Check social media meta tags,Page should have social media meta tags,"OpenGraph tags: 0, Twitter cards: 0",Info
+TC_021,Verify image alt texts,Check if all images have alt text,All images should have alt text,All images have alt text,Pass
+TC_022,Verify heading hierarchy,Check if page has proper heading structure starting with H1,Page should have at least one H1 heading,No H1 heading found,Fail
+TC_023,Check for multiple H1 headings,Verify page has only one main H1 heading,Page should have only one H1 heading,Found 0 H1 heading(s),Pass
+TC_024,Verify ARIA landmarks,Check for presence of ARIA landmarks,Page should have proper ARIA landmarks,Found 2 ARIA landmarks,Pass
+TC_025,Verify HTML language declaration,Check if page has proper language declaration,Page should have valid language declaration,Declared language: English (en),Pass
+TC_026,Verify content language,Detect main content language,Content language should be detectable,Detected language: English (en) with -22765.2% confidence,Warning
+TC_027,Verify language consistency,Compare declared vs detected language,Declared language should match content language,"Declared: English (en), Detected: English (en)",Pass
+TC_028,Check multi-language content,Analyze content for multiple languages,Document should consistently use declared language,"Found content in other languages: French (-1247.2%), German (-1926.9%)",Info
+TC_029,Verify text direction,Check if text direction is appropriate for the language,Text direction should match language requirements,Text direction is LTR,Pass
+TC_030,Verify character encoding,Check character encoding declaration,Page should use UTF-8 or appropriate encoding,Character encoding: utf-8,Pass
+TC_031,Check language annotations,Verify language attributes on elements,Multi-language content should be properly marked,Found 1 elements with language attributes,Pass

@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}Results - AI Website Test Case Generator{% endblock %}
+
+{% block content %}
+<div class="results-container">
+    <div class="results-header">
+        <h1>Test Cases for {{ url }}</h1>
+        <h2 class="sr-only">Results of Analysis</h2>
+        <div class="results-summary">
+            <div class="summary-item">
+                <span class="summary-label">Total Tests:</span>
+                <span class="summary-value">{{ summary.total }}</span>
+            </div>
+            <div class="summary-item passed">
+                <span class="summary-label">Passed:</span>
+                <span class="summary-value">{{ summary.passed }}</span>
+            </div>
+            <div class="summary-item failed">
+                <span class="summary-label">Failed:</span>
+                <span class="summary-value">{{ summary.failed }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions">
+        <a href="{{ url_for('download_report', filename=filename) }}" class="btn-download">
+            <i class="fas fa-download"></i> Download CSV Report
+        </a>
+        <a href="{{ url_for('index') }}" class="btn-secondary">
+            <i class="fas fa-redo"></i> Test Another Website
+        </a>
+    </div>
+
+    <div class="results-table-container">
+        <div class="table-controls">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search test cases...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Pass">Passed</button>
+                <button class="filter-btn" data-filter="Fail">Failed</button>
+            </div>
+        </div>
+
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>TC ID</th>
+                    <th>Description</th>
+                    <th>Test Step</th>
+                    <th>Expected Result</th>
+                    <th>Actual Result</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for test_case in test_cases %}
+                <tr class="test-row {{ test_case.Status.lower() }}">
+                    <td>{{ test_case.TC_ID }}</td>
+                    <td>{{ test_case['Test Case Description'] }}</td>
+                    <td>{{ test_case['Test Step'] }}</td>
+                    <td>{{ test_case['Expected Result'] }}</td>
+                    <td>{{ test_case['Actual Result'] }}</td>
+                    <td>
+                        <span class="status-badge {{ test_case.Status.lower() }}">
+                            {% if test_case.Status == 'Pass' %}
+                                <i class="fas fa-check"></i>
+                            {% else %}
+                                <i class="fas fa-times"></i>
+                            {% endif %}
+                            {{ test_case.Status }}
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const rows = document.querySelectorAll('.test-row');
+        
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(searchTerm) ? '' : 'none';
+        });
+    });
+
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.dataset.filter;
+            const rows = document.querySelectorAll('.test-row');
+
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // Filter rows
+            rows.forEach(row => {
+                if (filter === 'all') {
+                    row.style.display = '';
+                } else {
+                    row.style.display = row.classList.contains(filter.toLowerCase()) ? '' : 'none';
+                }
+            });
+        });
+    });
+});
+</script>
+{% endblock %}

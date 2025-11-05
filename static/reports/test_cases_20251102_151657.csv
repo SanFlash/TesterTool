@@ -1,0 +1,24 @@
+TC_ID,Test Case Description,Test Step,Expected Result,Actual Result,Status
+TC_001,Verify page title,Check if page has a title,Page should have a title,Page title is 'Caprics Learning',Pass
+TC_002,Verify meta description,Check if page has meta description,Page should have meta description,Meta description is missing,Fail
+TC_003,Verify meta keywords,Check if page has meta keywords,Page should have meta keywords,Meta keywords is missing,Fail
+TC_004,Verify meta viewport,Check if page has meta viewport,Page should have meta viewport,Meta viewport is present,Pass
+TC_005,Verify meta charset,Check if page has meta charset,Page should have meta charset,Meta charset is present,Pass
+TC_006,Verify meta robots,Check if page has meta robots,Page should have meta robots,Meta robots is missing,Fail
+TC_007,Verify responsive design meta tag,Check if page has viewport meta tag,Page should have viewport meta tag for responsiveness,"Viewport meta tag is present: width=device-width, initial-scale=1.0",Pass
+TC_008,Verify script loading,Check script inclusion,Page should load all required scripts,"Found 3 scripts (2 external, 1 inline)",Pass
+TC_009,Verify stylesheet loading,Check stylesheet inclusion,Page should load all required stylesheets,"Found 3 stylesheets (3 external, 0 inline)",Pass
+TC_010,Verify form elements presence,Check presence of interactive elements,Page should have necessary interactive elements,"Found 0 buttons, 0 input fields, 0 select dropdowns, 0 text areas",Info
+TC_011,Verify SEO basics,Check basic SEO elements,Page should have basic SEO elements,"Missing canonical link, Missing meta description, Image alt text ratio: 100%",Warning
+TC_012,Verify security measures,Check security features,Page should implement basic security measures,"CSRF protection: Missing, External links: 0, Password fields: 0",Pass
+TC_013,Verify social media metadata,Check social media meta tags,Page should have social media meta tags,"OpenGraph tags: 0, Twitter cards: 0",Info
+TC_014,Verify image alt texts,Check if all images have alt text,All images should have alt text,All images have alt text,Pass
+TC_015,Verify heading hierarchy,Check if page has proper heading structure starting with H1,Page should have at least one H1 heading,No H1 heading found,Fail
+TC_016,Check for multiple H1 headings,Verify page has only one main H1 heading,Page should have only one H1 heading,Found 0 H1 heading(s),Pass
+TC_017,Verify ARIA landmarks,Check for presence of ARIA landmarks,Page should have proper ARIA landmarks,Found 0 ARIA landmarks,Fail
+TC_018,Verify HTML language declaration,Check if page has proper language declaration,Page should have valid language declaration,Declared language: English (en),Pass
+TC_019,Verify content language,Detect main content language,Content language should be detectable,Detected language: French (fr) with 182.9% confidence,Pass
+TC_020,Verify language consistency,Compare declared vs detected language,Declared language should match content language,"Declared: English (en), Detected: French (fr)",Fail
+TC_021,Verify text direction,Check if text direction is appropriate for the language,Text direction should match language requirements,Text direction is LTR,Pass
+TC_022,Verify character encoding,Check character encoding declaration,Page should use UTF-8 or appropriate encoding,Character encoding: utf-8,Pass
+TC_023,Check language annotations,Verify language attributes on elements,Multi-language content should be properly marked,Found 1 elements with language attributes,Pass

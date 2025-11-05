@@ -1,0 +1,4 @@
+TC_ID,Test Case Description,Test Step,Expected Result,Actual Result,Status
+TC_001,Verify page title,Check if page has a title,Page should have a title,Page title is 'Bwsala',Pass
+TC_002,Verify meta description,Check if page has meta description,Page should have meta description,Meta description is present,Pass
+TC_003,Verify image alt texts,Check if all images have alt text,All images should have alt text,All images have alt text,Pass

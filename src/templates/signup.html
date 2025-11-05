@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up - Website Tester{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <h2>Create Account</h2>
+        <p class="auth-subtitle">Sign up to start testing websites</p>
+        
+        <form method="post" action="{{ url_for('signup') }}" class="auth-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required 
+                       pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                       title="Password must be at least 8 characters long and contain at least one letter and one number" />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+        </form>
+
+        <div class="auth-links">
+            <p>Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+{% endblock %}
+
+{% block styles %}
+<style>
+{% include 'auth_styles.html' %}
+</style>
+{% endblock %}

@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block title %}Website Tester - Landing{% endblock %}
+
+{% block content %}
+<div class="landing-container">
+    <div class="hero-section" style="text-align: center; padding: 4rem 0; background: linear-gradient(to right, #b4d2f0ff, #89b2dbff); border-radius: 10px; margin-bottom: 3rem;">
+        <h1>Website Testing Made Easy</h1>
+        <p class="hero-text">Test your website's accessibility, structure, and language with our AI-powered testing tool.</p>
+        {% if not session.get('user') %}
+            
+        {% else %}
+            <div class="cta-buttons">
+                <a href="{{ url_for('test_page') }}" class="btn btn-primary">Start Testing</a>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="features-section" style="text-align: center; padding: 4rem 1rem; background: linear-gradient(to right, #99adc0ff, #72b1f0ff); border-radius: 10px; margin-bottom: 3rem;">
+        <h1>Features</h1>
+        <br>
+        <div class="features-grid" style="background:background: linear-gradient(to right, #212222ff, #13416eff);">
+            <div class="feature-card">
+                <i class="fas fa-link"></i>
+                <h3>Link Analysis</h3>
+                <p>Check all links on your website for accessibility and validity.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-universal-access"></i>
+                <h3>Accessibility Tests</h3>
+                <p>Ensure your website meets accessibility standards.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-globe"></i>
+                <h3>Language Detection</h3>
+                <p>Analyze content language and consistency.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-code"></i>
+                <h3>Structure Analysis</h3>
+                <p>Validate HTML structure and form implementations.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+.landing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 4rem 0;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    border-radius: 10px;
+    margin-bottom: 3rem;
+}
+
+.hero-text {
+    font-size: 1.25rem;
+    color: #6c757d;
+    margin: 1.5rem 0;
+}
+
+.cta-buttons {
+    margin-top: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    margin: 0 0.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.features-section {
+    padding: 3rem 0;
+}
+
+.features-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card i {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: #6c757d;
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+}
+</style>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Home - TesterWish{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1 >AI-Powered Website Testing</h1>
+    <p class="subtitle">Generate comprehensive test cases for any website with our intelligent analyzer</p>
+
+    <div class="features">
+        <div class="feature-card">
+            <i class="fas fa-link"></i>
+            <h3>Link Analysis</h3>
+            <p>Verify all internal and external links</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-check-circle"></i>
+            <h3>Form Validation</h3>
+            <p>Test form fields and submissions</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-universal-access"></i>
+            <h3>Accessibility</h3>
+            <p>Check for WCAG compliance</p>
+        </div>
+    </div>
+
+    <div class="analysis-form">
+        <form action="{{ url_for('analyze') }}" method="post" id="urlForm">
+            <div class="input-group">
+                <input type="url" 
+                       id="url" 
+                       name="url" 
+                       required 
+                    placeholder="Enter Website URL (e.g., https://example.com)"
+                       pattern="https?://.+"
+                       title="Please enter a valid URL starting with http:// or https://">
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-search"></i>
+                    Analyze Website
+                </button>
+            </div>
+            <div id="loading" class="loading-spinner hidden">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Analyzing website...</span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Enter URL</h3>
+            <p>Input any website URL you want to test</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>AI Analysis</h3>
+            <p>Our AI examines the website structure</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Get Results</h3>
+            <p>View and download detailed test cases</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('urlForm').addEventListener('submit', function(e) {
+    document.getElementById('loading').classList.remove('hidden');
+});
+</script>
+{% endblock %}
