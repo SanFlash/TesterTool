@@ -1,6 +1,6 @@
-# Flask Site Tester
+# TesterWish
 
-Flask Site Tester is a web application that allows users to input a website URL, analyze its structure, and auto-generate a detailed test case table. This project is built using Flask and leverages various libraries to fetch, parse, and analyze web content.
+TesterWish is a web application that allows users to input a website URL, analyze its structure, and auto-generate a detailed test case table. This project is built using Flask and leverages various libraries to fetch, parse, and analyze web content.
 
 ## Features
 
@@ -12,7 +12,7 @@ Flask Site Tester is a web application that allows users to input a website URL,
 ## Project Structure
 
 ```
-flask-site-tester
+TesterTool
 ├── src
 │   ├── app.py                  # Entry point of the Flask application
 │   ├── analyzer
@@ -38,26 +38,6 @@ flask-site-tester
 └── README.md                     # Project documentation
 ```
 
-## Installation
-
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   cd flask-site-tester
-   ```
-
-2. Install the required dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-
-3. Run the application:
-   ```
-   python src/app.py
-   ```
-
-4. Open your web browser and navigate to `http://127.0.0.1:5000` to access the application.
-
 ## Usage
 
 - Enter a valid website URL in the input form and submit.
@@ -70,12 +50,7 @@ Contributions are welcome! Please feel free to submit a pull request or open an 
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+This project is licensed under the MIT License. See the LICENSE file for more details. 
+Developer - Satyendra Kumar Namdeo
  
-## Optional authentication and local fallback
 
-This project supports Supabase Auth (recommended for production). If you set `SUPABASE_URL` and `SUPABASE_KEY` in your environment (or `.env`), the app will use Supabase for signup/login/password resets.
-
-If you do not provide Supabase credentials, the app will automatically use a local SQLite fallback for authentication (development only). The local DB file is created at `data/auth.db`. The fallback supports signup, login, forgot-password (a development reset link is shown), and password reset via a token.
-
-Important: The local fallback is intended for convenience and testing only. Use Supabase (or another managed auth provider) for production deployments.
